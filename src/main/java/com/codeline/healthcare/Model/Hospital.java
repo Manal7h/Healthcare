@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Data
-
+@Entity
 public class Hospital extends BaseEntity{
 
     @Id

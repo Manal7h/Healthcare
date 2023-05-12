@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Data
+@Entity
 public class MedicalRecord extends BaseEntity{
 
     @Id
