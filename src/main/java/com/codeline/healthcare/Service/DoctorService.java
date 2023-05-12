@@ -22,4 +22,9 @@ public class DoctorService {
         doctorRepository.save(doctor);
         return "Created Successfully";
     }
+
+    public Doctor getDoctor(DoctorRequest request) {
+        Doctor doctor = doctorRepository.findById(request.getDoctorId()).get();
+        return doctor;
+    }
 }
