@@ -42,5 +42,15 @@ public class DoctorService {
         doctorRepository.save(doctor);
     }
 
+    public void updateDoctor(DoctorRequest request) {
+        Doctor doctor = doctorRepository.findById(request.getDoctorId()).get();
+        doctor.setDoctorName(request.getDoctorName());
+        doctor.setDoctorEmail(request.getDoctorEmail());
+        doctor.setDoctorDepartment(request.getDoctorDepartment());
+        doctor.setDoctorSpecialization(request.getDoctorSpecialization());
+        doctor.setUpdatedDate(new Date());
+        doctorRepository.save(doctor);
+    }
+
 
 }
