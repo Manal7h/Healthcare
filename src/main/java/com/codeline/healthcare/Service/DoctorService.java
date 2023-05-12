@@ -23,8 +23,10 @@ public class DoctorService {
         return "Created Successfully";
     }
 
-    public Doctor getDoctor(DoctorRequest request) {
-        Doctor doctor = doctorRepository.findById(request.getDoctorId()).get();
-        return doctor;
-    }
+//    public Doctor getDoctor(DoctorRequest request) {
+//        Doctor doctor = doctorRepository.findById(request.getDoctorId()).get();
+//        return doctor;
+//    }
+
+
 }
