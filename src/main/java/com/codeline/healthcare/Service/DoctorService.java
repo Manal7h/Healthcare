@@ -34,4 +34,13 @@ public class DoctorService {
         DoctorResponse doctorResponse = DoctorResponse.convertToResponse(doctor);
         return doctorResponse;
     }
+
+    public void deleteDoctor(DoctorRequest request) {
+        Doctor doctor = doctorRepository.findById(request.getDoctorId()).get();
+        doctor.setIsActive(false);
+        doctor.setUpdatedDate(new Date());
+        doctorRepository.save(doctor);
+    }
+
+
 }
