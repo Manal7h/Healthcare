@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.List;
 
 
@@ -11,13 +12,28 @@ import java.util.List;
 @Setter
 @Data
 
-public class Patient {
+public class Patient extends BaseEntity{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
     Integer patientId;
     String patientName;
     String dateOfBirth;
     String phoneNumber;
     String address;
-    String insurance;
+
+    //String insurance;
+
+    @ManyToOne
+    @JoinColumn(name = "insurance_provider_id", referencedColumnName = "id")
+    InsuranceProvider insuranceProvider;
+
+
     List<MedicalAppointment> medicalHistory;
+
+
+
+
+
 }
