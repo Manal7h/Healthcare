@@ -3,6 +3,7 @@ package com.codeline.healthcare.Service;
 import com.codeline.healthcare.Model.Doctor;
 import com.codeline.healthcare.Repository.DoctorRepository;
 import com.codeline.healthcare.Request.DoctorRequest;
+import com.codeline.healthcare.Response.DoctorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,9 @@ public class DoctorService {
 //        return doctor;
 //    }
 
-
+    public DoctorResponse getDoctorById(DoctorRequest request) {
+        Doctor doctor = doctorRepository.findById(request.getDoctorId()).get();
+        DoctorResponse doctorResponse = DoctorResponse.convertToResponse(doctor);
+        return doctorResponse;
+    }
 }
